@@ -1,0 +1,61 @@
+<wxs module="utils">
+module.exports.max = function(n1, n2) {
+  return Math.max(n1, n2)
+}
+module.exports.len = function(arr) {
+  arr = arr || []
+  return arr.length
+}
+</wxs>
+
+<view class="topView">
+    <view class="op-topView">{{headTip}}</view>
+</view>
+<view class="ming"> {{dev1}} {{devices.length}}  {{dev2}} {{shebei}}</view>
+
+<view wx:for="{{devices}}" wx:for-item="item" 
+    data-title="{{item.deviceId}}" 
+    data-name="{{item.name}}" 
+    data-macaddress="{{item.advertisData}}" 
+    data-advertisData="{{item.advertisServiceUUIDs}}"  
+  wx:key="{{item.deviceId}}" bindtap="bindViewTap">
+  <view class="cell-item">
+
+    <view class="cell-head">
+      <view >名称：{{item.name}}</view>
+       <view >信号强度:：{{item.RSSI}}dBm ({{utils.max(0, item.RSSI + 100)}}%)</view>
+      <view class='cell-head-id'>地址：{{item.advertisData}}</view>
+    </view>
+    <view class="cell-click">
+      <text>{{dainji}}</text>
+    </view>
+
+  </view>
+
+</view>
+
+<!-- 没有找到设备
+<view class="hide{{showView?'show':''}}" bindtap="onChangeShowState">
+       <image src='../Image/timg.jpg'></image>
+ </view>
+
+<button bindtap="openBluetoothAdapter">开始扫描</button>
+<button bindtap="stopBluetoothDevicesDiscovery">停止扫描</button>
+<button bindtap="closeBluetoothAdapter">结束流程</button>
+
+ <view class="devices_summary">已发现 {{devices.length}} 个外围设备：</view>
+<scroll-view class="device_list" scroll-y scroll-with-animation>
+  <view wx:for="{{devices}}" wx:key="index"
+   data-device-id="{{item.deviceId}}"
+   data-name="{{item.name || item.localName}}"
+   bindtap="createBLEConnection" 
+   class="device_item"
+   hover-class="device_item_hover">
+    <view style="font-size: 16px; color: #333;">{{item.name}}</view>
+    <view style="font-size: 10px">信号强度: {{item.RSSI}}dBm ({{utils.max(0, item.RSSI + 100)}}%)</view>
+    <view style="font-size: 10px">UUID: {{item.deviceId}}</view>
+    <view style="font-size: 10px">Service数量: {{utils.len(item.advertisServiceUUIDs)}}</view>
+  </view>
+</scroll-view>
+
+ -->

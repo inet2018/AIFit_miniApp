@@ -1,0 +1,13 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/BluetoothLink/BluetoothLink"
+  ],
+  "plugins": {
+    "myPlugin": {
+      "version": "1.0.0",
+      "provider": "wxf6042009c5b19c52"
+    }
+  },
+  "sitemapLocation": "sitemap.json"
+}

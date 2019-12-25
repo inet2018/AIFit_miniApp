@@ -1,0 +1,172 @@
+<view class="gray-content" bindtap="linkBleButton">{{linksToPrompt}}</view>
+
+<view class="info-div">
+
+  <view class="info-item" bindtap="sexClick">
+    <text class="info-item-text-1">性别</text>
+    <view class="info-right-div">
+      <text class="info-item-text-2" color="red" >{{sex}}</text>
+      <image src="../Image/ok.png" class="info-item-image"></image>
+    </view>
+  </view>
+
+  <picker mode="date" value="{{briday}}" start="1900-09-01" end="{{endTime}}" bindchange="bindDateChange">
+    <view class="info-item">
+      <text class="info-item-text-1">生日</text>
+      <view class="info-right-div">
+        <text class="info-item-text-2">{{briday}}</text>
+        <image src="../Image/ok.png" class="info-item-image"></image>
+      </view>
+    </view>
+  </picker>
+
+  <picker bindchange="bindHightChange" value="{{index}}" range="{{array}}">
+    <view class="info-item end-border">
+      <text class="info-item-text-1">身高</text>
+      <view class="info-right-div">
+        <text class="info-item-text-2">{{array[index]}}cm</text>
+        <image src="../Image/ok.png" class="info-item-image"></image>
+      </view>
+    </view>
+  </picker>
+
+</view>
+
+<view class="shape-cover" wx:if="{{isSexShow}}" bindtap="sexClick">
+  <view class="sex-modal">
+
+    <text class="modal-text-title">性别</text>
+    <view class="male-div" bindtap="manClick">
+      <text class="modal-text">男</text>
+      <image src="{{man_image}}" class="radio-class"></image>
+    </view>
+    <view class="line"></view>
+
+    <view class="male-div" bindtap="womanClick">
+      <text class="modal-text">女</text>
+      <image src="{{women_image}}" class="radio-class"></image>
+    </view>
+
+  </view>
+</view>
+
+<view class="table-content">
+  <!--  数据  -->
+
+  <view class="top-right-b-a" bindtap="onChangeShowState0">
+    <view class="top-right-a-1"><image src="../Image/weight.png"></image>体重</view>
+    <view class="top-right-a-2">{{weightsum}}{{UD_unit}}</view>
+  </view>
+
+  <view class="top-right-b-a" bindtap="onChangeShowState0">
+    <view class="top-right-a-1"><image src="../Image/weight.png"></image>阻抗</view>
+    <view class="top-right-a-2">{{adc}}</view>
+  </view>
+
+  <view class="top-right-b-a" bindtap="onChangeShowState0">
+    <view class="top-right-a-1"><image src="../Image/weight.png"></image>温度</view>
+    <view class="top-right-a-2">{{temp}}</view>
+  </view>
+
+  <view class="top-right-b-a" bindtap="onChangeShowState0">
+    <view class="top-right-a-1"><image src="../Image/weight.png"></image>DID</view>
+    <view class="top-right-a-2">{{did}}</view>
+  </view>
+
+  <view class="top-right-b-a" bindtap="onChangeShowState1">
+    <view class="top-right-a-1"><image src="../Image/bmi.png"></image>BMI</view>
+    <view class="top-right-a-2">{{BMI}}</view>
+  </view>
+
+  <view class="top-right-b-a" bindtap="onChangeShowState2">
+    <view class="top-right-a-1"><image src="../Image/bfr.png"></image>体脂率</view>
+    <view class="top-right-a-2">{{fatRate}} {{unit}}</view>
+  </view>
+
+  <view class="top-right-b-a " bindtap="onChangeShowState7">
+    <view class="top-right-a-1">
+      <image src="../Image/muscle.png"></image>肌肉率</view>
+    <view class="top-right-a-2">{{muscle}} {{unit}}</view>
+  </view>
+
+
+  <view class="top-right-b-a " bindtap="onChangeShowState10">
+    <view class="top-right-a-1">
+      <image src="../Image/moisture.png"></image>水份</view>
+    <view class="top-right-a-2">{{moisture}} {{unit}}</view>
+  </view>
+
+  <view class="top-right-b-a " bindtap="onChangeShowState8">
+    <view class="top-right-a-1">
+      <image src="../Image/bone_mass.png"></image>骨量</view>
+    <view class="top-right-a-2">{{boneMass}} {{unit}}</view>
+  </view>
+
+  <view class="top-right-b-a " bindtap="onChangeShowState4">
+    <view class="top-right-a-1">
+      <image src="../Image/bmr.png"></image>基础代谢率</view>
+    <view class="top-right-a-2">{{BMR}} {{kcal}}</view>
+  </view>
+
+  <view class="top-right-b-a " bindtap="onChangeShowState6">
+    <view class="top-right-a-1">
+      <image src="../Image/visceral_fat.png"></image>内脏脂肪指数</view>
+    <view class="top-right-a-2">{{visceralFat}}</view>
+  </view>
+
+  <view class="top-right-b-a " bindtap="onChangeShowState14">
+    <view class="top-right-a-1">
+      <image src="../Image/sub_fat.png"></image>皮下脂肪率</view>
+    <view class="top-right-a-2">{{subcutaneousFat}} {{unit}}</view>
+  </view>
+
+  <view class="top-right-b-a " bindtap="onChangeShowState9">
+    <view class="top-right-a-1">
+      <image src="../Image/protein_rate.png"></image>蛋白率</view>
+    <view class="top-right-a-2">{{proteinRate}} {{unit}}</view>
+  </view>
+
+  <view class="top-right-b-a " bindtap="onChangeShowState17">
+    <view class="top-right-a-1">
+      <image src="../Image/body_type.png"></image>身体年龄</view>
+    <view class="top-right-a-2">{{physicalAge}}</view>
+  </view>
+
+  <view class="top-right-b-a " bindtap="onChangeShowState17">
+    <view class="top-right-a-1">
+      <image src="../Image/standard_weight.png"></image>标准体重</view>
+    <view class="top-right-a-2">{{standardWeight}}{{UD_unit}}</view>
+  </view>
+
+  <view class="top-right-b-a " bindtap="onChangeShowState17">
+    <view class="top-right-a-1">
+      <image src="../Image/weight_ci.png"></image>体重控制量</view>
+    <view class="top-right-a-2">{{controlWeight}}{{UD_unit}}</view>
+  </view>
+
+  <view class="top-right-b-a " bindtap="onChangeShowState17">
+    <view class="top-right-a-1">
+      <image src="../Image/fat_weight.png"></image>脂肪量</view>
+    <view class="top-right-a-2">{{fat}}{{UD_unit}}</view>
+  </view>
+
+  <view class="top-right-b-a " bindtap="onChangeShowState17">
+    <view class="top-right-a-1">
+      <image src="../Image/out_fat_weight.png"></image>去脂体重</view>
+    <view class="top-right-a-2">{{removeFatWeight}}{{UD_unit}}</view>
+  </view>
+
+  <view class="top-right-b-a " bindtap="onChangeShowState17">
+    <view class="top-right-a-1">
+      <image src="../Image/muscle_weight.png"></image>肌肉量</view>
+    <view class="top-right-a-2">{{muscleMass}}{{UD_unit}}</view>
+  </view>
+
+  <view class="top-right-b-a " bindtap="onChangeShowState17">
+    <view class="top-right-a-1">
+      <image src="../Image/pr_weight.png"></image>蛋白量</view>
+    <view class="top-right-a-2">{{protein}}{{UD_unit}}</view>
+  </view>
+
+
+</view>
